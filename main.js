@@ -68,6 +68,13 @@ document.addEventListener("DOMContentLoaded", function () {
         navMenu.classList.toggle("active");
     });
 
+    // Close the menu if the user clicks outside of it
+    window.addEventListener("click", (e) => {
+        if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+            navMenu.classList.remove("active");
+        }
+    });
+
     // Fade-in effect when scrolling
     const fadeInElements = document.querySelectorAll('.fade-in-content');
 
@@ -97,4 +104,10 @@ document.addEventListener("DOMContentLoaded", function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+
+    // Call setResponsiveValues when the window is resized
+    window.addEventListener("resize", setResponsiveValues);
+
+    // Initial call to set responsive values
+    setResponsiveValues();
 });
