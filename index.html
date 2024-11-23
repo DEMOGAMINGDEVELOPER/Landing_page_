@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imment | NoCapMeta</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Loading Screen Styles */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .progress-container {
+            width: 80%;
+            margin: 10px 0;
+        }
+
+        .progress-bar {
+            height: 5px;
+            background-color: #00ff00;
+            animation: progress 3s linear;
+        }
+
+        @keyframes progress {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Fade animations */
+        .fade-out {
+            animation: fadeOut 1s forwards;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+        }
+
+        @keyframes fadeInBottom {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div id="loading-text">Loading... <span id="loading-percent">0%</span></div>
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <!-- Logo aligned left -->
+            <div class="logo">
+                <img src="logo.png" alt="NoCapMeta Logo">
+            </div>
+
+            <!-- Menu toggle button -->
+            <div class="menu-toggle">
+                <span>Menu</span>
+                <i class="fa fa-bars"></i>
+            </div>
+
+            <!-- Navigation menu (hidden initially) -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section fade-in-content">
+        <div class="hero-content">
+            <h1>Imment</h1>
+            <p>
+                Discover "Imment", our groundbreaking solution that revolutionizes virtual experiences. Craft
+                high-fidelity virtual environments and effortlessly deliver them to Mobile, Desktop, or VR Browsers—no
+                bulky application downloads required.
+            </p>
+            <a href="#" class="btn">
+                What we do <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <section class="intro-section fade-in-content">
+        <div class="container">
+            <h2>NoCap Meta: Pioneering the Experiential Internet Revolution.</h2>
+            <p>
+                In a digital age defined by mere interaction, we invite you to experience. With products like "Imment"
+                and "Aynaa.ai", NoCap Meta is reimagining the boundaries of the virtual realm. Dive into immersive
+                environments,
+                engage with AI-driven personas, and discover a web where every click is not just an action, but an
+                adventure.
+            </p>
+            <p>
+                Welcome to the next chapter of the internet, where experiences are as real, vibrant, and dynamic as our
+                ambitions.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section fade-in-content">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>
+                At NoCap Meta, we are reshaping the digital experience landscape. Our innovative solutions, like
+                "Imment"
+                and "Aynaa.ai," redefine what's possible in the virtual world. From high-fidelity environments to
+                AI-driven
+                personas, we deliver cutting-edge technology that feels as immersive as reality.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer fade-in-content">
+
+        <div class="footer-contact">
+            <p>
+                <strong>Join the Experiential Internet Revolution with NoCap Meta.</strong>
+                <em> Schedule a free consultation with us today.</em>
+            </p>
+            <a href="mailto:namaste@nocapmeta.in">namaste@nocapmeta.in</a>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                <strong>Office</strong> | <strong>Contacts</strong>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Loading simulation
+        let percent = 0;
+        const percentText = document.getElementById('loading-percent');
+        const loadingScreen = document.getElementById('loading-screen');
+
+        const interval = setInterval(() => {
+            if (percent < 100) {
+                percent++;
+                percentText.textContent = `${percent}%`;
+            }
+        }, 30);
+
+        // After loading finishes
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                clearInterval(interval);
+                loadingScreen.classList.add('fade-out'); // Fade out loading screen
+
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none'; // Hide loading screen
+
+                    // Animate all fade-in content
+                    // document.querySelectorAll('.fade-in-content').forEach((el) => {
+                    //     el.style.opacity = '1';
+                    // });
+                }, 1000);
+            }, 3000);
+        });
+    </script>
+
+    <script src="main.js"></script>
+</body>
+
+
+</html>

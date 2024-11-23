@@ -1,0 +1,286 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background-color: #000;
+    overflow: auto;
+}
+
+body.loaded {
+    overflow: auto;
+    /* Enable scroll after loading */
+}
+
+/* Preloader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    animation: slideOut 1.5s ease-in-out forwards;
+}
+
+/* Slide-out animation for preloader */
+@keyframes slideOut {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Header Styles */
+.header {
+    background-color: transparent;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+    /* For smooth color change */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Header visibility when scrolling */
+.header.visible {
+    transform: translateY(0);
+}
+
+/* Container for header layout */
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    /* Adjust as per your layout */
+    margin: 0 auto;
+}
+
+/* Logo Styles */
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+/* Navigation Menu Styles */
+.nav-menu ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-menu ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Menu Toggle Button for Mobile */
+.menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Mobile Menu Toggle - Responsive */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu ul {
+        display: none;
+        /* Hide menu by default */
+        flex-direction: column;
+        gap: 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+    }
+
+    .nav-menu.active ul {
+        display: flex;
+        /* Show menu when active */
+    }
+
+    .nav-menu ul li a {
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    background: url('background.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content .btn {
+    display: inline-block;
+    background: rgba(255, 204, 0, 0.9);
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.hero-content .btn:hover {
+    background: #ffcc00;
+}
+
+/* Intro Section */
+.intro-section {
+    background-color: #fff;
+    color: #333;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.intro-section h2 {
+    font-size: 2rem;
+    color: #000;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.intro-section p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* About Section */
+.about-section {
+    padding: 50px 20px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Footer Styles */
+.footer-contact {
+    background-color: #222;
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-contact p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.footer-contact a {
+    font-size: 1.2rem;
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-contact a:hover {
+    color: #fff;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 40px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Fade-in Animations */
+.fade-in-content {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.fade-in-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Show navigation menu when clicked */
+.nav-menu.active {
+    display: flex;
+}
+
+/* Mobile Menu Button */
+.menu-toggle {
+    cursor: pointer;
+}
