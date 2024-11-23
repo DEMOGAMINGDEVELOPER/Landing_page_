@@ -54,7 +54,6 @@ body.loaded {
     width: 100%;
     z-index: 1000;
     transition: background-color 0.3s ease-in-out;
-    /* For smooth color change */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
@@ -70,7 +69,6 @@ body.loaded {
     justify-content: space-between;
     width: 100%;
     max-width: 1200px;
-    /* Adjust as per your layout */
     margin: 0 auto;
 }
 
@@ -81,6 +79,16 @@ body.loaded {
 }
 
 /* Navigation Menu Styles */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Navigation Menu Links */
 .nav-menu ul {
     display: flex;
     gap: 20px;
@@ -115,27 +123,53 @@ body.loaded {
         display: flex;
     }
 
-    .nav-menu ul {
-        display: none;
-        /* Hide menu by default */
+    /* Mobile Navigation Menu */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        /* Initially off-screen */
+        width: 250px;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
         flex-direction: column;
-        gap: 20px;
-        background-color: rgba(0, 0, 0, 0.8);
-        padding: 20px;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-top: 50px;
+        transition: right 0.5s ease, opacity 0.5s ease;
+        /* Slide-in and fade-in effect */
+        z-index: 999;
+        /* Ensure it's above other content */
     }
 
-    .nav-menu.active ul {
-        display: flex;
-        /* Show menu when active */
+    /* When active, slide the menu to the right */
+    .nav-menu.active {
+        right: 0;
+    }
+
+    /* Navigation Menu Items */
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 20px;
+        /* Add some padding for aesthetics */
+        margin-top: 20px;
     }
 
     .nav-menu ul li a {
         font-size: 20px;
         text-align: center;
+        padding: 15px 0;
+        width: 100%;
+        border-bottom: 1px solid #444;
+    }
+
+    /* Menu Item Hover Styling */
+    .nav-menu ul li a:hover {
+        color: #ffcc00;
+        background-color: rgba(255, 204, 0, 0.1);
+        /* Subtle highlight */
     }
 }
 
@@ -267,7 +301,7 @@ body.loaded {
 .fade-in-content {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+    transition: opacity 2.5s ease-out, transform 2.5s ease-out;
 }
 
 .fade-in-content.visible {
